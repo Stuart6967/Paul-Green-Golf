@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paul Green Golf Academy | PGA Golfprofessional</title>
+  <meta name="description" content="Golflessen, groepslessen en persoonlijke coaching van PGA Professional Paul Green bij Golfclub Cromstrijen." />
+
+  <style>
+    :root {
+      --green: #0b3328;
+      --green-2: #155f43;
+      --lime: #c6f46b;
+      --sand: #f5efe4;
+      --white: #ffffff;
+      --text: #1c1c1c;
+      --muted: #6b6b6b;
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--sand);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .nav {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 40px);
+      max-width: 1180px;
+      z-index: 50;
+      background: rgba(255,255,255,.86);
+      backdrop-filter: blur(16px);
+      border-radius: 999px;
+      padding: 12px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+    }
+
+    .logo {
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      font-size: 14px;
+      color: #334;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: .2s ease;
+    }
+
+    .btn-primary {
+      background: var(--lime);
+      color: var(--green);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+    .btn-dark {
+      background: var(--green);
+      color: white;
+    }
+
+    .hero {
+      min-height: 100vh;
+      padding: 150px 24px 80px;
+      background:
+        linear-gradient(rgba(11,51,40,.65), rgba(11,51,40,.75)),
+        url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1800&q=80');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: flex;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 48px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      color: var(--lime);
+      text-transform: uppercase;
+      letter-spacing: 1.6px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 92px);
+      line-height: .95;
+      letter-spacing: -4px;
+      margin-bottom: 26px;
+    }
+
+    .hero p {
+      font-size: 21px;
+      max-width: 620px;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 34px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .hero-card {
+      background: rgba(255,255,255,.12);
+      backdrop-filter: blur(18px);
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .stat {
+      border-bottom: 1px solid rgba(255,255,255,.18);
+      padding: 18px 0;
+    }
+
+    .stat:last-child { border-bottom: none; }
+    .stat strong {
+      font-size: 34px;
+      display: block;
+      color: var(--lime);
+    }
+
+    section {
+      padding: 90px 24px;
+    }
+
+    .section-head {
+      max-width: 720px;
+      margin-bottom: 42px;
+    }
+
+    h2 {
+      font-size: clamp(34px, 5vw, 62px);
+      line-height: 1;
+      letter-spacing: -2px;
+      color: var(--green);
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      border-radius: var(--radius);
+      padding: 30px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.06);
+    }
+
+    .card h3 {
+      color: var(--green);
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 36px;
+      font-weight: 900;
+      color: var(--green-2);
+      margin: 18px 0;
+    }
+
+    .about {
+      background: var(--green);
+      color: white;
+    }
+
+    .about h2 { color: white; }
+    .about-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .portrait {
+      min-height: 520px;
+      border-radius: 36px;
+      background:
+        linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.3)),
+        url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1000&q=80');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    .badge {
+      background: rgba(198,244,107,.14);
+      color: var(--lime);
+      border: 1px solid rgba(198,244,107,.3);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .programs {
+      background: #fff;
+    }
+
+    .program-card {
+      background: var(--sand);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .program-card span {
+      color: var(--green-2);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    .scan {
+      background:
+        linear-gradient(135deg, var(--green), #071f19);
+      color: white;
+      border-radius: 40px;
+      padding: 54px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 34px;
+      align-items: center;
+    }
+
+    .scan h2 { color: white; }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 16px 18px;
+      border-radius: 16px;
+      border: none;
+      font-size: 16px;
+      font-family: inherit;
+    }
+
+    textarea { min-height: 110px; resize: vertical; }
+
+    .reviews {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .review {
+      background: white;
+      padding: 28px;
+      border-radius: var(--radius);
+    }
+
+    .stars { color: #f5b301; margin-bottom: 14px; }
+
+    .contact {
+      background: var(--green);
+      color: white;
+      text-align: center;
+    }
+
+    .contact h2 { color: white; }
+
+    footer {
+      background: #061813;
+      color: rgba(255,255,255,.7);
+      padding: 28px 24px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-grid, .about-grid, .scan { grid-template-columns: 1fr; }
+      .cards, .reviews { grid-template-columns: 1fr; }
+      h1 { letter-spacing: -2px; }
+      .hero { padding-top: 130px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="nav">
+    <a class="logo" href="#">Paul Green Golf Academy</a>
+    <div class="nav-links">
+      <a href="#lessen">Lessen</a>
+      <a href="#over">Over Paul</a>
+      <a href="#training">Training</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">Boek les</a>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">PGA Golfprofessional · Golfclub Cromstrijen</div>
+        <h1>Speel beter golf. Met meer rust. En meer plezier.</h1>
+        <p>
+          Persoonlijke golflessen, groepslessen en resultaatgerichte coaching van Paul Green.
+          Voor beginners, gevorderden en golfers die hun handicap serieus willen verlagen.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">Plan je les</a>
+          <a class="btn btn-dark" href="#lessen">Bekijk tarieven</a>
+        </div>
+      </div>
+
+      <div class="hero-card">
+        <div class="stat">
+          <strong>40+ jaar</strong>
+          PGA ervaring
+        </div>
+        <div class="stat">
+          <strong>A-status</strong>
+          PGA Holland
+        </div>
+        <div class="stat">
+          <strong>AAA</strong>
+          Australian PGA status
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section id="lessen">
+    <div class="container">
+      <div class="section-head">
+        <h2>Golflessen die direct verschil maken.</h2>
+        <p>Geen ingewikkelde theorie. Wel duidelijke feedback, praktische oefeningen en meer vertrouwen in je spel.</p>
+      </div>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Privéles kort</h3>
+          <p>Ideaal voor snelle correcties, techniekcheck of gericht werken aan één onderdeel.</p>
+          <div class="price">€35</div>
+          <p>25 minuten · 1/2 personen</p>
+        </div>
+
+        <div class="card">
+          <h3>Privéles volledig</h3>
+          <p>Voor golfers die echt stappen willen maken met swing, short game of baanstrategie.</p>
+          <div class="price">€65</div>
+          <p>55 minuten · 1/2 personen</p>
+        </div>
+
+        <div class="card">
+          <h3>Groepsles</h3>
+          <p>Samen trainen, meer plezier en persoonlijke aandacht binnen een kleine groep.</p>
+          <div class="price">v.a. €75</div>
+          <p>55 minuten · 3/4 personen</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about" id="over">
+    <div class="container about-grid">
+      <div class="portrait"></div>
+      <div>
+        <div class="eyebrow">Over Paul</div>
+        <h2>Van Melbourne naar Cromstrijen.</h2>
+        <p>
+          Paul Green begon met golf in Australië en werd in 1985 lid van de Australian PGA.
+          Na jaren toernooi-ervaring en lesgeven in Australië en Nederland keerde hij in 2008 terug naar Golfclub Cromstrijen.
+        </p>
+
+        <div class="badges">
+          <div class="badge">Australian PGA AAA</div>
+          <div class="badge">PGA Holland A-status</div>
+          <div class="badge">Golfclub Cromstrijen</div>
+          <div class="badge">Beginners & gevorderden</div>
+        </div>
+
+        <p>
+          Zijn stijl is helder, rustig en praktisch. Je weet precies wat je moet doen,
+          waarom het werkt en hoe je het zelf op de baan kunt toepassen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="programs" id="training">
+    <div class="container">
+      <div class="section-head">
+        <h2>Training op jouw niveau.</h2>
+        <p>Voor golfers die meer plezier, meer controle en minder missers willen.</p>
+      </div>
+
+      <div class="cards">
+        <div class="program-card">
+          <span>HCP 54-36</span>
+          <h3>Birdie</h3>
+          <p>Voor beginnende golfers die sneller zekerder willen worden op de baan.</p>
+        </div>
+
+        <div class="program-card">
+          <span>HCP 36-20</span>
+          <h3>Eagle</h3>
+          <p>Voor golfers die hun handicap willen verlagen en constanter willen spelen.</p>
+        </div>
+
+        <div class="program-card">
+          <span>HCP 20-10</span>
+          <h3>Albatros</h3>
+          <p>Voor serieuze spelers die technisch en tactisch beter willen worden.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container scan">
+      <div>
+        <h2>Gratis Golf Performance Scan</h2>
+        <p>
+          Vertel kort waar je tegenaan loopt. Paul kijkt mee en adviseert welke les of training het beste past.
+        </p>
+      </div>
+
+      <form action="mailto:paulgreengolf@gmail.com" method="post" enctype="text/plain">
+        <input type="text" name="Naam" placeholder="Je naam" required>
+        <input type="email" name="Email" placeholder="Je e-mail" required>
+        <select name="Niveau">
+          <option>Beginner</option>
+          <option>HCP 54-36</option>
+          <option>HCP 36-20</option>
+          <option>HCP 20-10</option>
+          <option>Senior golfer</option>
+        </select>
+        <textarea name="Vraag" placeholder="Waar wil je beter in worden?"></textarea>
+        <button class="btn btn-primary" type="submit">Vraag scan aan</button>
+      </form>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head">
+        <h2>Wat golfers vaak merken.</h2>
+      </div>
+
+      <div class="reviews">
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Eindelijk begrijp ik wat ik fout deed. Simpel uitgelegd en direct beter contact met de bal.”</p>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“Veel rustiger op de baan. Minder nadenken, meer vertrouwen.”</p>
+        </div>
+        <div class="review">
+          <div class="stars">★★★★★</div>
+          <p>“De groepslessen zijn gezellig, maar wel serieus goed opgebouwd.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2>Klaar om beter te spelen?</h2>
+      <p>Boek direct een les of neem contact op met Paul.</p>
+      <br>
+      <p><strong>Telefoon:</strong> 06-12515899</p>
+      <p><strong>E-mail:</strong> paulgreengolf@gmail.com</p>
+      <br>
+      <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">Open lesagenda</a>
+    </div>
+  </section>
+
+  <footer>
+    © 2026 Paul Green Golf Academy · Golfclub Cromstrijen · Website concept
+  </footer>
+
+</body>
+</html>
