@@ -3,62 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Paul Green Golf Academy | PGA Golfprofessional</title>
-  <meta name="description" content="Golflessen, groepslessen en persoonlijke coaching van PGA Professional Paul Green bij Golfclub Cromstrijen." />
+  <meta name="description" content="Premium golflessen, groepslessen en persoonlijke golfcoaching van PGA Professional Paul Green bij Golfclub Cromstrijen." />
 
   <style>
     :root {
-      --green: #0b3328;
-      --green-2: #155f43;
-      --lime: #c6f46b;
+      --green: #07382d;
+      --green2: #0f5b43;
+      --lime: #c9ff64;
       --sand: #f5efe4;
+      --cream: #fffaf2;
+      --dark: #071713;
+      --text: #17211d;
+      --muted: #65706b;
       --white: #ffffff;
-      --text: #1c1c1c;
-      --muted: #6b6b6b;
-      --radius: 24px;
+      --radius: 28px;
+      --shadow: 0 24px 70px rgba(0,0,0,.12);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: Inter, Arial, sans-serif;
       background: var(--sand);
       color: var(--text);
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1180px, calc(100% - 40px));
+      margin: 0 auto;
+    }
 
     .nav {
       position: fixed;
-      top: 20px;
+      top: 18px;
       left: 50%;
       transform: translateX(-50%);
-      width: calc(100% - 40px);
-      max-width: 1180px;
-      z-index: 50;
-      background: rgba(255,255,255,.86);
-      backdrop-filter: blur(16px);
+      width: min(1180px, calc(100% - 32px));
+      z-index: 99;
+      padding: 12px 16px;
       border-radius: 999px;
-      padding: 12px 18px;
+      background: rgba(255,255,255,.88);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      box-shadow: 0 12px 40px rgba(0,0,0,.08);
+      justify-content: space-between;
     }
 
     .logo {
-      font-weight: 800;
+      font-weight: 900;
       color: var(--green);
       letter-spacing: -.5px;
+      font-size: 17px;
     }
 
     .nav-links {
       display: flex;
-      gap: 22px;
+      gap: 24px;
       font-size: 14px;
-      color: #334;
+      color: #2d3934;
+      font-weight: 600;
     }
 
     .btn {
@@ -67,10 +87,15 @@
       justify-content: center;
       padding: 14px 22px;
       border-radius: 999px;
-      font-weight: 700;
-      border: none;
+      font-weight: 800;
+      border: 0;
       cursor: pointer;
-      transition: .2s ease;
+      transition: .25s ease;
+      font-size: 15px;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
@@ -78,58 +103,57 @@
       color: var(--green);
     }
 
-    .btn-primary:hover { transform: translateY(-2px); }
     .btn-dark {
       background: var(--green);
       color: white;
     }
 
+    .btn-light {
+      background: white;
+      color: var(--green);
+    }
+
     .hero {
       min-height: 100vh;
-      padding: 150px 24px 80px;
+      padding: 150px 0 80px;
+      color: white;
       background:
-        linear-gradient(rgba(11,51,40,.65), rgba(11,51,40,.75)),
-        url('https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=1800&q=80');
+        linear-gradient(90deg, rgba(7,56,45,.90), rgba(7,56,45,.55), rgba(7,56,45,.20)),
+        url("https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&w=2000&q=85");
       background-size: cover;
       background-position: center;
-      color: white;
       display: flex;
       align-items: center;
     }
 
-    .container {
-      width: 100%;
-      max-width: 1180px;
-      margin: 0 auto;
-    }
-
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.25fr .75fr;
-      gap: 48px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 50px;
       align-items: center;
     }
 
     .eyebrow {
       color: var(--lime);
       text-transform: uppercase;
-      letter-spacing: 1.6px;
+      letter-spacing: 1.8px;
       font-size: 13px;
-      font-weight: 800;
-      margin-bottom: 18px;
+      font-weight: 900;
+      margin-bottom: 20px;
     }
 
     h1 {
-      font-size: clamp(48px, 8vw, 92px);
-      line-height: .95;
+      font-size: clamp(48px, 8vw, 96px);
+      line-height: .92;
       letter-spacing: -4px;
-      margin-bottom: 26px;
+      max-width: 780px;
+      margin-bottom: 28px;
     }
 
-    .hero p {
+    .hero-text {
       font-size: 21px;
-      max-width: 620px;
-      color: rgba(255,255,255,.9);
+      max-width: 630px;
+      color: rgba(255,255,255,.88);
       margin-bottom: 34px;
     }
 
@@ -141,38 +165,44 @@
 
     .hero-card {
       background: rgba(255,255,255,.12);
-      backdrop-filter: blur(18px);
-      border: 1px solid rgba(255,255,255,.2);
-      border-radius: var(--radius);
-      padding: 28px;
+      border: 1px solid rgba(255,255,255,.22);
+      backdrop-filter: blur(20px);
+      border-radius: 36px;
+      padding: 32px;
+      box-shadow: var(--shadow);
     }
 
-    .stat {
-      border-bottom: 1px solid rgba(255,255,255,.18);
-      padding: 18px 0;
+    .hero-card h3 {
+      font-size: 28px;
+      margin-bottom: 16px;
     }
 
-    .stat:last-child { border-bottom: none; }
-    .stat strong {
-      font-size: 34px;
-      display: block;
-      color: var(--lime);
+    .hero-list {
+      display: grid;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .hero-list div {
+      padding: 16px;
+      border-radius: 18px;
+      background: rgba(255,255,255,.11);
     }
 
     section {
-      padding: 90px 24px;
+      padding: 95px 0;
     }
 
     .section-head {
-      max-width: 720px;
-      margin-bottom: 42px;
+      max-width: 760px;
+      margin-bottom: 44px;
     }
 
     h2 {
-      font-size: clamp(34px, 5vw, 62px);
-      line-height: 1;
-      letter-spacing: -2px;
       color: var(--green);
+      font-size: clamp(36px, 5vw, 66px);
+      line-height: 1;
+      letter-spacing: -2.5px;
       margin-bottom: 18px;
     }
 
@@ -191,20 +221,30 @@
       background: white;
       border-radius: var(--radius);
       padding: 30px;
-      box-shadow: 0 18px 50px rgba(0,0,0,.06);
+      box-shadow: 0 18px 55px rgba(0,0,0,.07);
+      transition: .25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
     }
 
     .card h3 {
       color: var(--green);
-      font-size: 24px;
+      font-size: 25px;
       margin-bottom: 12px;
     }
 
     .price {
-      font-size: 36px;
-      font-weight: 900;
-      color: var(--green-2);
-      margin: 18px 0;
+      font-size: 42px;
+      font-weight: 950;
+      color: var(--green2);
+      margin: 20px 0 8px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 15px;
     }
 
     .about {
@@ -212,87 +252,111 @@
       color: white;
     }
 
-    .about h2 { color: white; }
+    .about h2 {
+      color: white;
+    }
+
     .about-grid {
       display: grid;
       grid-template-columns: .9fr 1.1fr;
-      gap: 44px;
+      gap: 48px;
       align-items: center;
     }
 
-    .portrait {
-      min-height: 520px;
-      border-radius: 36px;
+    .photo-card {
+      min-height: 550px;
+      border-radius: 40px;
+      overflow: hidden;
       background:
-        linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.3)),
-        url('https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1000&q=80');
+        linear-gradient(rgba(0,0,0,.05), rgba(0,0,0,.35)),
+        url("https://images.unsplash.com/photo-1587174486073-ae5e5cff23aa?auto=format&fit=crop&w=1200&q=85");
       background-size: cover;
       background-position: center;
+      box-shadow: var(--shadow);
     }
 
     .badges {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin: 24px 0;
+      margin: 28px 0;
     }
 
     .badge {
-      background: rgba(198,244,107,.14);
+      border: 1px solid rgba(201,255,100,.35);
+      background: rgba(201,255,100,.12);
       color: var(--lime);
-      border: 1px solid rgba(198,244,107,.3);
       padding: 10px 14px;
       border-radius: 999px;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 14px;
     }
 
     .programs {
-      background: #fff;
+      background: var(--cream);
     }
 
     .program-card {
       background: var(--sand);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 30px;
     }
 
     .program-card span {
-      color: var(--green-2);
-      font-weight: 800;
+      display: block;
+      color: var(--green2);
+      font-weight: 900;
       font-size: 13px;
       text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
     }
 
-    .scan {
-      background:
-        linear-gradient(135deg, var(--green), #071f19);
-      color: white;
+    .feature {
+      background: white;
       border-radius: 40px;
-      padding: 54px;
+      padding: 55px;
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 34px;
+      gap: 42px;
       align-items: center;
+      box-shadow: var(--shadow);
     }
 
-    .scan h2 { color: white; }
+    .feature-image {
+      min-height: 430px;
+      border-radius: 32px;
+      background:
+        linear-gradient(rgba(7,56,45,.1), rgba(7,56,45,.35)),
+        url("https://images.unsplash.com/photo-1593111774240-d529f12cf4bb?auto=format&fit=crop&w=1200&q=85");
+      background-size: cover;
+      background-position: center;
+    }
 
-    form {
+    .steps {
       display: grid;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .step {
+      display: flex;
       gap: 14px;
+      align-items: flex-start;
     }
 
-    input, select, textarea {
-      width: 100%;
-      padding: 16px 18px;
-      border-radius: 16px;
-      border: none;
-      font-size: 16px;
-      font-family: inherit;
+    .number {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--lime);
+      color: var(--green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      flex: 0 0 auto;
     }
-
-    textarea { min-height: 110px; resize: vertical; }
 
     .reviews {
       display: grid;
@@ -302,11 +366,53 @@
 
     .review {
       background: white;
-      padding: 28px;
       border-radius: var(--radius);
+      padding: 28px;
+      box-shadow: 0 18px 50px rgba(0,0,0,.06);
     }
 
-    .stars { color: #f5b301; margin-bottom: 14px; }
+    .stars {
+      color: #f5b301;
+      margin-bottom: 14px;
+      font-size: 19px;
+    }
+
+    .scan {
+      background:
+        linear-gradient(135deg, var(--green), #061c16);
+      color: white;
+      border-radius: 44px;
+      padding: 60px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 42px;
+      align-items: center;
+      box-shadow: var(--shadow);
+    }
+
+    .scan h2 {
+      color: white;
+    }
+
+    form {
+      display: grid;
+      gap: 14px;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      border: 0;
+      border-radius: 16px;
+      padding: 16px 18px;
+      font: inherit;
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
 
     .contact {
       background: var(--green);
@@ -314,22 +420,92 @@
       text-align: center;
     }
 
-    .contact h2 { color: white; }
+    .contact h2 {
+      color: white;
+    }
+
+    .contact p {
+      color: rgba(255,255,255,.85);
+      font-size: 18px;
+    }
+
+    .contact-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 28px;
+    }
 
     footer {
-      background: #061813;
-      color: rgba(255,255,255,.7);
-      padding: 28px 24px;
+      background: var(--dark);
+      color: rgba(255,255,255,.68);
+      padding: 32px 20px;
       text-align: center;
       font-size: 14px;
     }
 
+    .whatsapp {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 100;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #25d366;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 29px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.25);
+    }
+
+    .mobile-menu {
+      display: none;
+      border: 0;
+      background: var(--green);
+      color: white;
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 900;
+    }
+
     @media (max-width: 900px) {
-      .nav-links { display: none; }
-      .hero-grid, .about-grid, .scan { grid-template-columns: 1fr; }
-      .cards, .reviews { grid-template-columns: 1fr; }
-      h1 { letter-spacing: -2px; }
-      .hero { padding-top: 130px; }
+      .nav-links,
+      .nav .btn {
+        display: none;
+      }
+
+      .mobile-menu {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 135px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .feature,
+      .scan {
+        grid-template-columns: 1fr;
+      }
+
+      .cards,
+      .reviews {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .feature,
+      .scan {
+        padding: 32px;
+      }
     }
   </style>
 </head>
@@ -338,42 +514,65 @@
 
   <nav class="nav">
     <a class="logo" href="#">Paul Green Golf Academy</a>
+
     <div class="nav-links">
       <a href="#lessen">Lessen</a>
       <a href="#over">Over Paul</a>
       <a href="#training">Training</a>
+      <a href="#scan">Scan</a>
       <a href="#contact">Contact</a>
     </div>
-    <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">Boek les</a>
+
+    <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">
+      Boek les
+    </a>
+
+    <button class="mobile-menu" onclick="alert('Menu: Lessen, Over Paul, Training, Scan, Contact')">
+      Menu
+    </button>
   </nav>
 
   <header class="hero">
     <div class="container hero-grid">
       <div>
         <div class="eyebrow">PGA Golfprofessional · Golfclub Cromstrijen</div>
+
         <h1>Speel beter golf. Met meer rust. En meer plezier.</h1>
-        <p>
+
+        <p class="hero-text">
           Persoonlijke golflessen, groepslessen en resultaatgerichte coaching van Paul Green.
           Voor beginners, gevorderden en golfers die hun handicap serieus willen verlagen.
         </p>
+
         <div class="hero-actions">
-          <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">Plan je les</a>
-          <a class="btn btn-dark" href="#lessen">Bekijk tarieven</a>
+          <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">
+            Plan direct je les
+          </a>
+
+          <a class="btn btn-light" href="#lessen">
+            Bekijk aanbod
+          </a>
         </div>
       </div>
 
       <div class="hero-card">
-        <div class="stat">
-          <strong>40+ jaar</strong>
-          PGA ervaring
-        </div>
-        <div class="stat">
-          <strong>A-status</strong>
-          PGA Holland
-        </div>
-        <div class="stat">
-          <strong>AAA</strong>
-          Australian PGA status
+        <h3>Waarom golfers voor Paul kiezen</h3>
+
+        <div class="hero-list">
+          <div>
+            <strong>Heldere uitleg</strong><br>
+            Geen ingewikkelde theorie, maar praktische feedback.
+          </div>
+
+          <div>
+            <strong>Meer vertrouwen</strong><br>
+            Rustiger spelen en beter begrijpen wat je doet.
+          </div>
+
+          <div>
+            <strong>PGA ervaring</strong><br>
+            Coaching vanuit tientallen jaren golfervaring.
+          </div>
         </div>
       </div>
     </div>
@@ -383,29 +582,31 @@
     <div class="container">
       <div class="section-head">
         <h2>Golflessen die direct verschil maken.</h2>
-        <p>Geen ingewikkelde theorie. Wel duidelijke feedback, praktische oefeningen en meer vertrouwen in je spel.</p>
+        <p>
+          Kies een losse les, train samen in een kleine groep of werk gericht aan je handicap.
+        </p>
       </div>
 
       <div class="cards">
         <div class="card">
           <h3>Privéles kort</h3>
-          <p>Ideaal voor snelle correcties, techniekcheck of gericht werken aan één onderdeel.</p>
+          <p>Perfect voor een snelle swingcheck, korte correctie of gericht werken aan één onderdeel.</p>
           <div class="price">€35</div>
-          <p>25 minuten · 1/2 personen</p>
+          <p class="small">25 minuten · 1 of 2 personen</p>
         </div>
 
         <div class="card">
           <h3>Privéles volledig</h3>
-          <p>Voor golfers die echt stappen willen maken met swing, short game of baanstrategie.</p>
+          <p>Voor golfers die serieus willen werken aan techniek, short game, driver of baanstrategie.</p>
           <div class="price">€65</div>
-          <p>55 minuten · 1/2 personen</p>
+          <p class="small">55 minuten · 1 of 2 personen</p>
         </div>
 
         <div class="card">
           <h3>Groepsles</h3>
-          <p>Samen trainen, meer plezier en persoonlijke aandacht binnen een kleine groep.</p>
+          <p>Gezellig trainen met persoonlijke aandacht in een kleine groep.</p>
           <div class="price">v.a. €75</div>
-          <p>55 minuten · 3/4 personen</p>
+          <p class="small">55 minuten · 3 of 4 personen</p>
         </div>
       </div>
     </div>
@@ -413,25 +614,31 @@
 
   <section class="about" id="over">
     <div class="container about-grid">
-      <div class="portrait"></div>
+      <div class="photo-card"></div>
+
       <div>
         <div class="eyebrow">Over Paul</div>
-        <h2>Van Melbourne naar Cromstrijen.</h2>
+
+        <h2>Een ervaren coach met een rustige, duidelijke stijl.</h2>
+
         <p>
-          Paul Green begon met golf in Australië en werd in 1985 lid van de Australian PGA.
-          Na jaren toernooi-ervaring en lesgeven in Australië en Nederland keerde hij in 2008 terug naar Golfclub Cromstrijen.
+          Paul Green begon zijn golfcarrière in Australië en werd lid van de Australian PGA.
+          Na jaren toernooi-ervaring en lesgeven in Australië en Nederland geeft hij nu les
+          bij Golfclub Cromstrijen.
         </p>
 
         <div class="badges">
-          <div class="badge">Australian PGA AAA</div>
-          <div class="badge">PGA Holland A-status</div>
-          <div class="badge">Golfclub Cromstrijen</div>
-          <div class="badge">Beginners & gevorderden</div>
+          <span class="badge">Australian PGA</span>
+          <span class="badge">PGA Holland</span>
+          <span class="badge">Golfclub Cromstrijen</span>
+          <span class="badge">Beginners</span>
+          <span class="badge">Gevorderden</span>
+          <span class="badge">Handicap verbeteren</span>
         </div>
 
         <p>
-          Zijn stijl is helder, rustig en praktisch. Je weet precies wat je moet doen,
-          waarom het werkt en hoe je het zelf op de baan kunt toepassen.
+          Zijn aanpak is simpel: eerst begrijpen wat er gebeurt, dan gericht verbeteren.
+          Daardoor ga je niet alleen beter slaan, maar speel je ook met meer vertrouwen.
         </p>
       </div>
     </div>
@@ -440,53 +647,112 @@
   <section class="programs" id="training">
     <div class="container">
       <div class="section-head">
-        <h2>Training op jouw niveau.</h2>
-        <p>Voor golfers die meer plezier, meer controle en minder missers willen.</p>
+        <h2>Training voor ieder niveau.</h2>
+        <p>
+          Van je eerste stappen op de baan tot gericht trainen om je handicap te verlagen.
+        </p>
       </div>
 
       <div class="cards">
         <div class="program-card">
-          <span>HCP 54-36</span>
-          <h3>Birdie</h3>
-          <p>Voor beginnende golfers die sneller zekerder willen worden op de baan.</p>
+          <span>HCP 54 - 36</span>
+          <h3>Birdie Programma</h3>
+          <p>
+            Voor beginnende golfers die meer zekerheid willen krijgen met techniek,
+            regels en spelen op de baan.
+          </p>
         </div>
 
         <div class="program-card">
-          <span>HCP 36-20</span>
-          <h3>Eagle</h3>
-          <p>Voor golfers die hun handicap willen verlagen en constanter willen spelen.</p>
+          <span>HCP 36 - 20</span>
+          <h3>Eagle Programma</h3>
+          <p>
+            Voor golfers die constanter willen worden en hun handicap merkbaar willen verbeteren.
+          </p>
         </div>
 
         <div class="program-card">
-          <span>HCP 20-10</span>
-          <h3>Albatros</h3>
-          <p>Voor serieuze spelers die technisch en tactisch beter willen worden.</p>
+          <span>HCP 20 - 10</span>
+          <h3>Albatros Programma</h3>
+          <p>
+            Voor fanatieke spelers die hun spel technisch, tactisch en mentaal willen aanscherpen.
+          </p>
         </div>
       </div>
     </div>
   </section>
 
   <section>
+    <div class="container feature">
+      <div>
+        <div class="eyebrow">Premium coaching</div>
+        <h2>Niet harder trainen. Slimmer trainen.</h2>
+
+        <p>
+          Veel golfers oefenen vooral méér. Paul helpt je om beter te oefenen.
+          Met duidelijke aandachtspunten, simpele drills en feedback die je begrijpt.
+        </p>
+
+        <div class="steps">
+          <div class="step">
+            <span class="number">1</span>
+            <div>
+              <strong>Analyse</strong><br>
+              Waar verlies je de meeste slagen?
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="number">2</span>
+            <div>
+              <strong>Gerichte correctie</strong><br>
+              Eén of twee duidelijke verbeterpunten.
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="number">3</span>
+            <div>
+              <strong>Oefenen met doel</strong><br>
+              Praktische drills voor thuis, driving range en baan.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="feature-image"></div>
+    </div>
+  </section>
+
+  <section id="scan">
     <div class="container scan">
       <div>
-        <h2>Gratis Golf Performance Scan</h2>
+        <div class="eyebrow">Gratis intake</div>
+        <h2>Vraag je Golf Performance Scan aan.</h2>
+
         <p>
-          Vertel kort waar je tegenaan loopt. Paul kijkt mee en adviseert welke les of training het beste past.
+          Vertel kort waar je tegenaan loopt. Paul kijkt mee en adviseert
+          welke les of training het beste bij je past.
         </p>
       </div>
 
       <form action="mailto:paulgreengolf@gmail.com" method="post" enctype="text/plain">
-        <input type="text" name="Naam" placeholder="Je naam" required>
-        <input type="email" name="Email" placeholder="Je e-mail" required>
+        <input type="text" name="Naam" placeholder="Je naam" required />
+        <input type="email" name="Email" placeholder="Je e-mailadres" required />
+
         <select name="Niveau">
           <option>Beginner</option>
-          <option>HCP 54-36</option>
-          <option>HCP 36-20</option>
-          <option>HCP 20-10</option>
-          <option>Senior golfer</option>
+          <option>HCP 54 - 36</option>
+          <option>HCP 36 - 20</option>
+          <option>HCP 20 - 10</option>
+          <option>HCP onder 10</option>
         </select>
+
         <textarea name="Vraag" placeholder="Waar wil je beter in worden?"></textarea>
-        <button class="btn btn-primary" type="submit">Vraag scan aan</button>
+
+        <button class="btn btn-primary" type="submit">
+          Vraag scan aan
+        </button>
       </form>
     </div>
   </section>
@@ -495,20 +761,31 @@
     <div class="container">
       <div class="section-head">
         <h2>Wat golfers vaak merken.</h2>
+        <p>
+          Kleine technische aanpassingen kunnen op de baan een groot verschil maken.
+        </p>
       </div>
 
       <div class="reviews">
         <div class="review">
           <div class="stars">★★★★★</div>
-          <p>“Eindelijk begrijp ik wat ik fout deed. Simpel uitgelegd en direct beter contact met de bal.”</p>
+          <p>
+            “Eindelijk begrijp ik wat ik fout deed. Simpel uitgelegd en direct beter balcontact.”
+          </p>
         </div>
+
         <div class="review">
           <div class="stars">★★★★★</div>
-          <p>“Veel rustiger op de baan. Minder nadenken, meer vertrouwen.”</p>
+          <p>
+            “Veel rustiger op de baan. Minder nadenken, meer vertrouwen.”
+          </p>
         </div>
+
         <div class="review">
           <div class="stars">★★★★★</div>
-          <p>“De groepslessen zijn gezellig, maar wel serieus goed opgebouwd.”</p>
+          <p>
+            “De groepslessen zijn gezellig, maar wel serieus goed opgebouwd.”
+          </p>
         </div>
       </div>
     </div>
@@ -516,15 +793,39 @@
 
   <section class="contact" id="contact">
     <div class="container">
+      <div class="eyebrow">Contact</div>
+
       <h2>Klaar om beter te spelen?</h2>
-      <p>Boek direct een les of neem contact op met Paul.</p>
-      <br>
+
+      <p>
+        Boek direct een les of neem contact op met Paul.
+      </p>
+
+      <br />
+
       <p><strong>Telefoon:</strong> 06-12515899</p>
       <p><strong>E-mail:</strong> paulgreengolf@gmail.com</p>
-      <br>
-      <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">Open lesagenda</a>
+
+      <div class="contact-actions">
+        <a class="btn btn-primary" href="https://paulgreen.igolfinstructor.com/" target="_blank">
+          Open lesagenda
+        </a>
+
+        <a class="btn btn-light" href="mailto:paulgreengolf@gmail.com">
+          Stuur e-mail
+        </a>
+      </div>
     </div>
   </section>
+
+  <a
+    class="whatsapp"
+    href="https://wa.me/31612515899?text=Hoi%20Paul%2C%20ik%20wil%20graag%20meer%20informatie%20over%20golflessen."
+    target="_blank"
+    aria-label="WhatsApp Paul"
+  >
+    ☎
+  </a>
 
   <footer>
     © 2026 Paul Green Golf Academy · Golfclub Cromstrijen · Website concept
